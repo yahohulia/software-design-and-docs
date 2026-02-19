@@ -31,6 +31,10 @@ graph LR
 
 ## Sequence Diagram
 
+### Scenario
+
+Delivery of a message to a user with subsequent confirmation of reading
+
 ```mermaid
 sequenceDiagram
     participant A as User A (Sender)
@@ -54,6 +58,9 @@ sequenceDiagram
 ```
 
 ## State Diagram
+
+### Object
+`Message`
 
 ```mermaid
 stateDiagram-v2
