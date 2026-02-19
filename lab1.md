@@ -84,7 +84,9 @@ stateDiagram-v2
 Accepted
 
 ## Context
-We need to know exactly when the message was delivered to the device (Delivered) and when it was opened by the user (Read). The server cannot independently determine the moment of “reading” without a signal from the client.
+We need to know exactly when the message was delivered to the device (Delivered) 
+and when it was opened by the user (Read). The server cannot independently determine
+the moment of “reading” without a signal from the client.
 
 ## Decision
 Use the explicit acknowledgements mechanism from the client application via a WebSocket connection. 
