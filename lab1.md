@@ -79,7 +79,6 @@ stateDiagram-v2
 
 ## Architecture Decision Record
 
-```markdown
 ## Status
 Accepted
 
@@ -103,4 +102,3 @@ Use the explicit acknowledgements mechanism from the client application via a We
 + Ability to implement “Double Check” (check marks), as in WhatsApp/Telegram.
 - Increase in the number of small entries in the database (write-heavy load).
 - Need to process duplicate ACKs when the internet connection is unstable.
-```
