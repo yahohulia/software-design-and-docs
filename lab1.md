@@ -28,3 +28,27 @@ graph LR
   WS --> ClientReceiver
   WS --> ClientSender
 ```
+
+## Sequence Diagram
+
+```mermaid
+sequenceDiagram
+    participant A as User A (Sender)
+    participant MsgService as Message Service
+    participant DB as Database
+    participant B as User B (Receiver)
+
+    A->>MsgService: Send message
+    MsgService->>DB: Save message (status: sent)
+    MsgService-->>A: 201 Created (status: sent)
+    
+    MsgService->>B: Deliver message
+    B->>MsgService: Acknowledgement (delivered)
+    MsgService->>DB: Update status: delivered
+    MsgService->>A: Push: Message delivered
+    
+    Note over B: User B opens chat
+    B->>MsgService: Acknowledgement (read)
+    MsgService->>DB: Update status: read
+    MsgService->>A: Push: Message read
+```
