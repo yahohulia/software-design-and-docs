@@ -52,3 +52,20 @@ sequenceDiagram
     MsgService->>DB: Update status: read
     MsgService->>A: Push: Message read
 ```
+
+## State Diagram
+
+```mermaid
+stateDiagram-v2
+    [*] --> Sent: Message received by Server
+    
+    Sent --> Delivered: [Recipient is Online] <br/> Direct delivery
+    Sent --> Pending: [Recipient is Offline] <br/> Wait for connection
+    
+    Pending --> Delivered: [Recipient comes Online] <br/> Push/Sync
+    
+    Delivered --> Read: [Recipient opens chat] <br/> Client ACK
+    
+    Sent --> Failed: [Network Error / Timeout]
+    Failed --> Sent: Retry logic
+```
